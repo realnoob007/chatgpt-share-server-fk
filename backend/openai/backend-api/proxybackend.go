@@ -199,6 +199,6 @@ func ProxyBackendWithCar(r *ghttp.Request) {
 	newreq.URL.Scheme = u.Scheme
 	newreq.Host = u.Host
 	// g.Dump(newreq.Header)
-	newreq.Header.Set("authkey", config.AUTHKEY)
+	newreq.Header.Set("X-license", config.AUTHKEY)
 	proxy.ServeHTTP(r.Response.Writer.RawWriter(), newreq)
 }
