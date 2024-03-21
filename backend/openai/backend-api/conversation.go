@@ -107,6 +107,7 @@ func ConversationPATCH(r *ghttp.Request) {
 	originUrl := config.CHATPROXY + "/backend-api/conversation/" + conversationId
 	resp, err := g.Client().SetAgent(r.Header.Get("User-Agent")).SetHeaderMap(g.MapStrStr{
 		"Authorization":      "Bearer " + AccessToken,
+		"X-license": config.AUTHKEY,
 		"Content-Type":       "application/json",
 		"ChatGPT-Account-ID": chatgptaccountid,
 	}).Patch(ctx, originUrl, g.MapStrStr{
